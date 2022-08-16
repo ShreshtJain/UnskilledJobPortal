@@ -1,0 +1,162 @@
+Unskilled Web app
+
+WorkFlow ->
+
+Register --- Login --- HomePage(hire,work) ---
+
+Home Page
+1. Hire - 
+	FORM [ post job select category from DROPDOWN.
+	workLocation ,workDescription , [(jobType)monthly daily] ,dailywage ,
+	Estimated_Cost ,Date ]
+
+	Job_Status -> Active
+	
+	-> After Job Applied
+	Worker Name ,Mobile ,Address
+
+	Job_Status -> InActive
+	
+	No Applier found for job within 30 days. Automatically set job status 	to Inactive.
+
+2. Worker -	Home Page for worker according to his category.
+
+	searchOptions = 1. Category   2.    Location  
+
+	ApplyJob/JobFound 
+
+
+3. Admin - Select Or Delete data.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		TABLES
+
+1. Register/User Table ->   Name ,UserType(for db Only optional) ,lastName ,mobileNo ,
+		AadharCard[user_id](PK) ,Address ,Gender ,Skills
+
+2. Category : CategoryId(PK) ,CategoryName 
+
+3. Job  :  jobId(auto genreated,PK),user_id(FK),workLocation, workDescription , category(FK), isActive,Estimated_Cost, DateJobPost(backend),LastDate, jobType(monthly,dailywage),job_assigned_to(FK)
+
+4. Admin Table :  username, password 
+
+5. All_Jobs_Applied : jobid(FK),user_id_worker(FK)
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Pages/ Frames of Application						
+TotalPages = 15
+1. Homepage [everyone]
+2. Register [everyone]
+3. Login [everyone]
+4. LandingPageUser	
+	4.1 PostJob
+		4.1.1 ViewAllAppliers
+		4.1.2 ViewAllYourPostedJobs(showStatusOfJob)[Filter Category Wise(optional)]
+		4.1.3 JobDetailsPage[optional--> delete functionality]
+		
+	4.2 ApplyJob
+		4.2.1 ViewAllJobs
+		4.2.2 SearchJobs/CategoriedToBeUsed
+		4.3.3 JobDetailsPage
+		4.3.4 AllAppliedJobs[Filter for selectedJobs]
+	
+5. ViewProfile
+	5.1 UpdateProfile[Optional]
+6. Logout-->RedirectHomepage
+
+7. Admin[Time Bacha To,Optional]
+	7.1 ViewAllUsers
+	7.2 AddOrDeleteCategories
+	7.3 DelterUser
+
+-------------------------------------------------------------------------------------------------------------------------------------
+Diagrams
+
+1-> ER Diagram done	
+2-> FlowDiagram done
+3-> UseCaseDiagram [Kon krega?] Sourabh	
+4-> Synopsis [Kon krega?] Nikhil
+	1.Introduction	
+	2.Problem Domain Description	
+	3. Background Study
+	4. Major objective & scope of project   
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		Database
+
+ User : group5
+ Password : group5
+ Database Name : mini_project_db
+
+ create user group5 identified by group5;
+ create database mini_project_db;
+
+Tables :
+
+1. Users -> 
+ user_id : autogenerate(number)//serial
+ first_name : String Varchar2(30)
+ last_name : String Varchar2(30)
+ gender : String Varchar2(1) check
+ aadhar_no : String Varchar2(12) PrimaryKey [login id]
+ password : String Varchar2(30)  [password]
+ mobile_no : String Varchar2(10)
+ UserType(for db Only optional) : String Varchar2(10)
+ Address : String Varchar2(50) 
+ Skills : String Varchar2(60)[comma seperated values]
+
+create table users(
+ user_id auto_increment,
+ first_name varchar2(30),
+ last_name varchar2(30),
+ gender varchar2(1) check,
+ aadhar_no varchar2(12) PRIMARY KEY,
+ password varchar2(30),
+ mobile_no varchar2(10),
+ user_type varchar2(10),
+ address varchar2(50),
+ skills varchar2(60)
+);
+		
+	
+
+2. Category 
+ category_id : autogenerate(number)//serial PrimaryKey
+ category_name : String Varchar2(30)
+
+3. Job  
+ jobId : autogenreated(number) PrimaryKey
+ aadhar_no : String Varchar2(12) (Foreign Key references to users table) // who posted job
+ category_id : number (Foreign Key references to categories table) //ui dropdown
+ work_state : String Varchar2(30) //ui dropdown
+ work_city : String Varchar2(30) [cities only] //ui text
+ work_pincode : String Varchar2(6)  //ui text
+ work_area : String Varchar2(50)  //ui text
+ work_description : String Varchar2(100)  //ui text
+ isActive : boolean(true/false)
+ estimated_cost : number(7)  //ui text
+ date_of_job_post : Date(current date automatically filled)
+ last_date : Date  //ui text calendar
+ job_type : String Varchar2(30) (monthly,dailywage)  //ui dropdown
+ job_assigned_to : String Varchar2(12) (aadhar number of worker FK(users Table))
+
+4. Admin Table 
+ username : String Varchar2(30)
+ password : String Varchar2(30)
+
+5. All_Jobs_Applied 
+ jobid : number (Foreign Key references Job Table)
+ user_id_worker : aadhar number (Foreign Key references Users Table)
+
+                                       
+
+
+
+
+
+
+
+
+ 
