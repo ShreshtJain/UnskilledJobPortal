@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Admin Portal</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+
+<style type="text/css">
+*{
+	padding: 0;
+	margin:0;
+	box-sizing: border-box;
+}
+body{
+	background: #fbf3ff;
+}
+
+.btn1{
+border: none;
+outline: none;
+height: 50px;
+width: 100%;
+background-color: #9b59b6;
+color: white;
+border-radius: 4px;
+font-weight: blod; 
+}
+.btn1:hover{
+background: #8e44ad;
+border: 4px solid #9b59b6;
+color: white}
+
+.container{
+position: absolute;
+max-width: 800px;
+height: 500px;
+margin: auto;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+}
+.myRightCtn{
+position: relative;
+background-image:linear-gradient(45deg,#f046ff,#9b00e8);
+border-radius: 0px 10px 10px 0px;
+height: 100%;
+padding: 25px;
+color:rgb(192,192,192);
+font-size: 12px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.myLeftCtn{
+position: relative;
+background: #fff;
+border-radius: 0px 0px 0px 0px;
+height: 100%;
+padding: 25px;
+padding-left: 50px;
+}
+.myLeftCtn header{
+color:#9b59b6;
+font-size: 24px;
+font-weight: 700;
+margin-bottom: 20px;
+}
+.roe{
+height: 100%;
+}
+.myCard{
+position: relative;
+background: #fff;
+
+border-radius: 0px 10px 10px 0px;
+-webkit-box-shadow: 0px 10px 40px -10px rgba(0,0,0,0.7);
+-mox-box-shadow: 0px 10px 40px -10px rgba(0,0,0,0.7);
+box-shadow: 0px 10px 40px -10px rgba(0,0,0,0.7);
+}
+.myRightCtn header{
+color: #fff;
+font-size: 44px;
+}
+.box{
+position: relative;
+margin: 20px;
+margin-bottom: 100px;
+}
+</style>
+
+</head>
+<body >
+	<div class="container">
+		<div class="myCard">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="myLeftCtn">
+					
+					<form class="myForm text-center">
+					<header>Admin Sign In</header>
+						<div class="form-group">
+							
+								<input type="text" class="form-control my-3 p-3" placeholder="Username" required="required">
+							
+						</div>
+						<div class="form-group">
+							
+								<input type="password" class="form-control my-3 p-3" placeholder="Password" required="required">
+							
+						</div>
+						<div class="form-group">
+							
+								<button type="button" class="btn1">
+								Login
+								</button>
+							
+						</div>
+						<a href="">Forgot Password </a>
+						
+					</form>
+					
+					</div>
+				</div> 
+				
+				
+				<div class="col-md-6">
+					<div class="myRightCtn">
+						<div class="box">
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>

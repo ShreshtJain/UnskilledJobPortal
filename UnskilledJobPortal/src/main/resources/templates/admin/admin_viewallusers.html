@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+th:replace="admin/base::layout(~{::section})">
+<head>
+   
+
+</head>
+
+<body class="animsition">
+<section>
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <a class="logo" href="index.html">
+                            <span class="title"><h3 style="padding-left: 40px;color: #fff;">Job Portal</h3></span>
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        <li class="has-sub">
+                            <a href="" th:href="@{admin_add_category}">
+                                <i class="fa fa-upload" aria-hidden="true"></i>Post a Category</a>
+                        </li>
+                        <li class="has-sub">
+                            <a href="" th:href="@{admin_viewallcategory}">
+                                <i class="fa fa-book" aria-hidden="true"></i>Category List</a>
+                        </li>
+                        
+                     <li class="has-sub">
+                            <a href="" th:href="@{/logout}">
+                                <i class="fa fa-power-off" aria-hidden="true"></i>Logout</a>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
+
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a href="#">
+                            <span class="title"><h3 style="padding-left: 40px;color: #fff;">Job Portal</h3></span>
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <li class="has-sub">
+                            <a href="" th:href="@{admin_add_category}">
+                                <i class="fa fa-upload" aria-hidden="true"></i>Post a Category</a>
+                        </li>
+                        <li class="has-sub">
+                            <a href="" th:href="@{admin_viewallcategory}">
+                                <i class="fa fa-book" aria-hidden="true"></i>Category List</a>
+                        </li>
+                        
+                      <li class="has-sub">
+                            <a href="" th:href="@{/logout}">
+                                <i class="fa fa-power-off" aria-hidden="true"></i>Logout</a>
+                        </li>
+                        
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                            
+                            <div class="header-button">
+                                  <h2 style="color: white">All Employee's</h2>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- END HEADER DESKTOP-->
+
+            <!-- MAIN CONTENT-->
+
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                    <div th:if="${session.message}" th:classappend="${session.message.type}" class="alert" role="alert">
+  						<p class="text-center" th:text="${session.message.content}"></p>
+  				
+  						<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+						</div>
+               			<div class="row m-t-30">
+                            <div class="col-md-12">
+                                <!-- DATA TABLE-->
+                                <div class="table-responsive m-b-40">
+                                    <table class="table table-borderless table-data3">
+                                        <thead>
+                                            <tr>
+                                                <th>Aadar No.</th>
+                                                <th>Full Name</th>
+                                                <th>Address</th>
+                                                <th>Mobile No.</th>
+                                                <th>Gender</th>
+                                                
+                                                
+
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="c:${user}">
+                                                <td><span th:text="${c.aadhar}"></span></td>
+                                                <td><span th:text="${c.firstName}"></span><span th:text="${c.lastName}"></span></td>
+                                                <td> <span th:text="${c.address}"></span></td>
+                                                <td><span th:text="${c.contact}"></span></td>
+                                                <td><span th:text="${c.gender}"></span></td>
+                                                
+                                               <!--   <td>
+                                                <div style="margin-right: 25px;">
+                                             
+                                             <form th:action="@{/admin/admin_deleteuser}" th:object="${user}" method="post">
+                    							<input type="hidden" name="aadhar" th:value="${c.getAadhar()}">
+                    							<button type="submit" style="color: red;"><i class="fa fa-trash" aria-hidden="true" ></i></button>
+                    						
+               								</form>
+               								</div>
+                                                </td>-->
+                                                
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                    <!-- Pagination -->
+                                   
+                                </div>
+                    </div>
+                </div>
+                </div>
+                </div>              
+        <!-- END PAGE CONTAINER-->
+
+    </div>
+
+   </div>
+   </div>
+   </section>
+
+</body>
+
+</html>
+<!-- end document-->

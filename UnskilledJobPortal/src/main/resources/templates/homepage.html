@@ -1,0 +1,178 @@
+    
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+th:replace="/translated::layout(~{::section})"><head>
+<section>
+<head>
+<meta charset="ISO-8859-1">
+<title>home page</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" type="text/css" href="" th:href="@{/css/home.css}">
+</head>
+<body class="a">
+	<div class="section-1">
+	</div>
+	
+	<div id="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<h1 id="logo"><img th:src="@{images/logo.png}" style="width: 2rem; "><u>unskilled</u></h1>
+				</div>
+				<div class="col-md-8">
+					<ul id="menu" class="float-md-right ">
+						<li><a href="" th:href="@{home}">Home</a></li>
+						<li><a href="#">About Us</a></li>
+						<li><a href="" th:href="@{login}">Login/Sign Up</a></li>
+					</ul>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<div class="section-1">
+	</div>
+	<div id="banner" class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-lg-6">
+					<div class="banner-title">
+						<h1 class="title">
+							Unskilled Job Protal
+						</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container section">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="section-head">PROJECT BENEFITS</h2>
+			</div>
+			<div class="col-md-4">
+				<div class="service-box">
+					<i class="fa fa-diamond" aria-hidden="true"></i>
+					<p>It will provide fair job opportunities for skilled and âUnskilled workers.â</p>
+					
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="service-box">
+					<i class="fa fa-bookmark" aria-hidden="true"></i>
+					<p>Employers can choose from a list of workers.â</p>
+					
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="service-box">
+					<i class="fa fa-search" aria-hidden="true"></i>
+					<p>It will provide fast and reliable services to both âemployees and workers.â</p>
+					
+				</div>
+			</div>			
+		</div>
+	</div>
+	
+
+
+<div id="news" class="container section">
+	<div class="row">
+		<div class="col-md-12">
+			<h2 class="section-head ">CATEGORYS</h2>
+		</div>
+		<div class="col-lg-3">
+			<div class="news-post">
+				<img  th:src="@{images/maid.jpg}">
+				<h3><a href="">Maid</a></h3>
+				<div class="post-date">April 30, 2020</div>
+				
+				
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div class="news-post">
+				<img th:src="@{images/plumber.jpg}">
+				<h3><a href="">plumber</a></h3>
+				<div class="post-date">April 30, 2020</div>
+				
+				
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div class="news-post">
+				<img th:src="@{images/painter.jpg}">
+				<h3><a href="">Painter</a></h3>
+				<div class="post-date">April 30, 2020</div>
+				
+				
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div class="news-post">
+				<img th:src="@{images/carpenter.jpg}">
+				<h3><a href="">Carpenter</a></h3>
+				<div class="post-date">April 30, 2020</div>
+				
+				
+			</div>
+		</div>
+		 
+	</div>
+</div>
+
+
+<div id="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="footer">
+					<h4>About Us</h4>
+					<p>In our day-to-day life it is often seen as a challenge to find a specific service provider or a working professional who can solve our general livelihood problems.</p>
+					<p>There are sadly no efficient platforms available currently which can easily solve these major problems which most of us face in our daily lives.​</p>
+					
+				</div>
+			</div>
+			<!-- <div class="col-md-4">
+				<div class="footer">
+					<h4>Contact Us</h4>
+					<p>A paragraph is a series of sentences that are organized and coherent, and are all related to a single topic</p>
+					<p>A paragraph is a series of sentences that are organized and coherent, and are all related to a single topic</p>
+				</div>
+			</div> -->
+			<div class="col-md-4">
+				<div class="footer">
+					<h4>Company Address</h4>
+					<address>
+					<b>Persistent Systems Limited</b><br>
+					Rajiv Gandhi Infotech Park, Hinjewadi,<br>
+					Pune 411 057<br>
+					P : (123) 8888-8888
+					</address>
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+<div id="google_translate_element"></div>
+
+
+
+		
+	
+
+
+
+<div class="section-1">
+	</div>
+</body>
+</section>
+
+</html>

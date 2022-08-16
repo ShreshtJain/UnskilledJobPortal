@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+th:replace="admin/base::layout(~{::section})">
+
+<head>
+<title>Admin Job Portal</title>
+</head>
+
+<body class="animsition">
+<section>
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <a class="logo" href="index.html">
+                            <span class="title"><h3 style="padding-left: 40px;color: #fff;">Job Portal</h3></span>
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        
+                        <li class="has-sub">
+                            <a href="" th:href="@{admin_viewallcategory}">
+                                <i class="fa fa-book" aria-hidden="true"></i>Category List</a>
+                        </li>
+                        <li class="has-sub">
+                            <a href="" th:href="@{admin_viewallusers}">
+                                <i class="fa fa-book" aria-hidden="true"></i>Employee's List</a>
+                        </li>
+                      <li class="has-sub">
+                            <a href="" th:href="@{/logout}">
+                              <i class="fa fa-power-off" aria-hidden="true"></i>Logout</a>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
+
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a href="#">
+                            <span class="title"><h3 style="padding-left: 40px;color: #fff;">Job Portal</h3></span>
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <li class="has-sub">
+                            <a href="" th:href="@{admin_viewallcategory}">
+                                <i class="fa fa-book" aria-hidden="true"></i>Category List</a>
+                        </li>
+                        <li class="has-sub">
+                            <a href="" th:href="@{admin_viewallusers}">
+                                <i class="fa fa-book" aria-hidden="true"></i>Employee's List</a>
+                        </li>
+                      <li class="has-sub">
+                            <a href="" th:href="@{/logout}">
+                               <i class="fa fa-power-off" aria-hidden="true"></i>Logout</a>
+                        </li>
+                        
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                            
+                            <div class="header-button">
+                                  <h2 style="color: white">Add the Category</h2>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- END HEADER DESKTOP-->
+
+            <!-- MAIN CONTENT-->
+
+            <div class="main-content">
+               <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                    <div th:if="${session.message}" th:classappend="${session.message.type}" class="alert" role="alert">
+  						<p class="text-center" th:text="${session.message.content}"></p>
+  				
+  						<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+						</div> 
+              			 <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Job Category Form</strong> Elements
+                                    </div>
+                                    <div class="card-body card-block">
+                                        <form novalidate action="#" th:object="${category}" method="post" th:action="@{/admin/process_category}"  enctype="multipart/form-data" class="form-horizontal">
+                                            
+                                            
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Category Name</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="text-input" name="categoryName" th:classappend="${#fields.hasErrors('categoryName') ? 'is-invalid':''}" placeholder="Category Name" class="form-control" required>
+                                                    <div class="invalid-feedback" th:each="e:${#fields.errors('categoryName')}" th:text="${e}">
+							      						</div>
+                                                </div>
+                                            </div>
+                                           
+                                          
+                                       
+                                    <div class="card-footer">
+                                        <button type="submit" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-dot-circle-o"></i> Add
+                                        </button>
+                                
+                                    </div>
+                                     </form>
+                                    </div>
+                                </div>
+                              </div>
+                             </div>
+                            </div>
+        <!-- END PAGE CONTAINER-->
+
+    </div>
+
+    </div>
+    </div>
+    </section>
+
+</body>
+
+</html>
+<!-- end document-->

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+th:replace="/translated::layout(~{::section})"><head>
+<section>
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Job Post</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="css/theme.css" rel="stylesheet" media="all">
+
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <a class="logo" href="index.html">
+                            <span class="title"><h3 style="padding-left: 40px;color: #fff;">Job Portal</h3></span>
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="" th:href="@{dashboard}">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            
+                        </li>
+                        <li class="has-sub">
+                            <a href="" th:href="@{posted_job_list}">
+                                <i class="fa fa-book" aria-hidden="true"></i>All Posted Job</a>
+                        </li>
+                      <!-- <li class="has-sub">
+                            <a href="" th:href="@{job_post}">
+                                <i class="fas fa-upload"></i>Job Post</a>
+                        </li>
+                        <li class="has-sub">
+                            <a href="" th:href="@{job_applied_list}">
+                                <i class="fas fa-users"></i>Applied employer</a>
+                        </li>-->
+                       
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
+
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a href="#">
+                            <span class="title"><h3 style="padding-left: 40px;color: #fff;">Job Portal</h3></span>
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="" th:href="@{dashboard}">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            
+                        </li>
+                        <li class="has-sub">
+                            <a href="" th:href="@{posted_job_list}">
+                                <i class="fa fa-book" aria-hidden="true"></i>All Posted Job</a>
+                        </li>
+                       <!--  <li class="has-sub">
+                            <a href="" th:href="@{job_post}">
+                                <i class="fas fa-upload"></i>Job Post</a>
+                        </li>
+                        <li class="has-sub">
+                            <a href="" th:href="@{job_applied_list}">
+                                <i class="fas fa-users"></i>Applied employer</a>
+                        </li>-->
+                        
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                            <div class="header-button">
+                                  <h2 style="color: white">Post a Job</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- END HEADER DESKTOP-->
+
+            <!-- MAIN CONTENT-->
+
+            <div class="main-content">
+                
+               <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Job Post Form</strong>
+                                    </div>
+                                    <div class="card-body card-block">
+                                    
+                                    <!-- The form submit method will redirect "/job_post" which is placed in JobController-->
+                                        <form action="#" th:action="@{/job_post}" th:object="${postJobForm}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                        
+                                        
+                                        
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="select" class=" form-control-label">Select Category</label>
+                                                </div>
+
+												<!-- This div will populate the Category drop down from model data CategoryList coming from JobController  -->
+                                                <div class="col-12 col-md-9">
+                                                    <select name="categoryId" id="categoryId" th:field="*{categoryId}" class="form-control">
+                                                        <option value="">Please select the Job Category</option>
+                                                        <option th:each="category : ${categoriesList}" th:value="${category.categoryId}" th:text="${category.categoryName}" ></option>
+                                                    </select>
+                                                    <small class="form-text text-danger" th:if="${#fields.hasErrors('categoryId')}" th:errors="*{categoryId}"></small>
+                                                </div>          											
+                                            </div>
+                                            
+                                            
+          
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="textarea-input" class=" form-control-label">Work Description</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <textarea name="workDescription" id="workDescription" th:field="*{workDescription}" rows="6" placeholder="Please Enter the Work Description" class="form-control" required="required"></textarea>
+                                                     <small class="form-text text-danger" th:if="${#fields.hasErrors('workDescription')}" th:errors="*{workDescription}"></small>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            <!-- This div will populate the States drop down from model data CategoryList coming from JobController -->
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="select" class=" form-control-label">Select State</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <select name="workState" id="workState" th:field="*{workState}"class="form-control">
+                                                        <option value="">Please select the work State</option>
+                                                        <option th:each="state : ${statesList}" th:value="${state}" th:text="${state}" ></option>
+                           							</select>
+                           							<small class="form-text text-danger" th:if="${#fields.hasErrors('workState')}" th:errors="*{workState}"></small>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Work City</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" name="workCity" th:field="*{workCity}" placeholder="Please enter the Work City name" class="form-control" required="required">
+                                                    <small class="form-text text-danger" th:if="${#fields.hasErrors('workCity')}" th:errors="*{workCity}"></small>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Pincode</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="number" id="workPincode" name="workPincode" th:field="*{workPincode}" placeholder="Please enter the Work Area Pincode" class="form-control" required="required">
+                                                    <small class="form-text text-danger" th:if="${#fields.hasErrors('workPincode')}" th:errors="*{workPincode}"></small>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Work Area</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="workArea" name="workArea" th:field="*{workArea}"placeholder="Please enter the Work Area name" class="form-control" required="required">
+                                                    <small class="form-text text-danger" th:if="${#fields.hasErrors('workArea')}" th:errors="*{workArea}"></small>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Cost</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="number" id="estimatedCost" name="estimatedCost" th:field="*{estimatedCost}"placeholder="Please enter Estimated Cost" class="form-control" required="required">
+                                                    <small class="form-text text-danger" th:if="${#fields.hasErrors('estimatedCost')}" th:errors="*{estimatedCost}"></small>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="select" class=" form-control-label">Job Type</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <select name="jobType" id="jobType"  th:field="*{jobType}"class="form-control">
+                                                     	<option value="">Please Choose the Job Type</option>
+                                                     	<option th:each="jobType : ${jobTypeList}" th:value="${jobType}" th:text="${jobType}" ></option>
+                                                    </select>
+                                                     <small class="form-text text-danger" th:if="${#fields.hasErrors('jobType')}" th:errors="*{jobType}" ></small>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Last Date</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="date" id="lastDate" name="lastDate" th:field="*{lastDate}" placeholder="Text"  class="form-control" required="required" >
+                                                    <small class="form-text text-muted" th:disabled="${lastDate == null}" >Please enter the Deadline of Job</small>
+                                                    <small class="text-danger" th:if="${#fields.hasErrors('lastDate')}" >Please enter the Deadline of Job</small>
+                                                </div>
+                                            </div>
+                                          
+                                       
+                                   
+                                    <div class="card-footer d-grid gap-2">
+                                    	<div class="d-grid gap-2 col-3 mx-auto">
+                                    		<button type="submit" class="btn btn-primary btn-lg ">
+                                            <i class="fa fa-dot-circle-o"></i> Submit
+                                        	</button>
+                                    	</div>                                       
+                                
+                                    </div>
+                                    
+                                </form>
+                                    
+                           </div>
+                                    
+                      </div>
+                              
+        <!-- END PAGE CONTAINER-->
+
+    </div>
+    <div id="google_translate_element"></div>
+    
+</div>
+</div>
+</div>
+    <!-- Jquery JS-->
+    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="vendor/slick/slick.min.js">
+    </script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="vendor/select2/select2.min.js">
+    </script>
+
+    <!-- Main JS-->
+    <script src="js/main.js"></script>
+
+</body>
+</section>
+</html>
+<!-- end document-->
